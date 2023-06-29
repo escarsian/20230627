@@ -28,8 +28,32 @@
     <tr><th>이름</th><th>나이</th><th>점수</th><th>삭제</th></tr>
   </thead>
   <tbody id="target">
-
   </tbody>
 </table>
+<style>
+  div.outer {
+    display: inline-block;
+	width: 900px;
+	height: 500px;
+	background-color: yellow;
+  }
+  .outer span{
+	display: inline-block;
+	width:80px;
+	height: 30px;
+	margin: 2px;
+	padding: 2px;
+	background-color: aquamarine;
+	text-align: center;
+  }
+</style>
+<input type = "text" id="userInput"><br>
+<br>
+<div class="outer">
+  <span>Hello</span>
+</div>
 
-<script src="resources/js/main4.js"></script>
+
+
+
+<script src="resources/js/main5.js"></script>

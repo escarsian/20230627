@@ -1,20 +1,27 @@
 package com.yedam.common;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.yedam.member.dao.MemberMapper;
+import com.yedam.calendar.dao.CalendarMapper;
+import com.yedam.calendar.vo.CalendarVO;
 
 public class TestMain {
 	public static void main(String[] args) {
 		SqlSession session = DataSource.getInstance().openSession();
-		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		CalendarMapper mapper = session.getMapper(CalendarMapper.class);
 		
-		List<Map<String, Object>> list = mapper.chartData(); //List<Map<String, Object>>
-		for(Map<String, Object> map : list) {
-			System.out.println("부서: " + map.get("DEPARTMENT_NAME") + ", 인원: " + map.get("CNT")); //map의 value,key 값을 가져옴.
-		}
+		//title:해외여행가기, 2023-06-30, 2023-07-05
+		CalendarVO vo = new CalendarVO();
+		mapper.insert(vo);
+		vo.setTitle("해외여행가기");
+		vo.setStartDate("2023-06-30");
+		vo.setEndDate("2023-07-05");
+		
+//		List<CalendarVO> list = mapper.getList();
+//		for(CalendarVO cal : list) {
+//			System.out.println(cal);
+		
 	}
 }

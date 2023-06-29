@@ -8,7 +8,9 @@
       let aryData = [];
       aryData.push(['Department', 'Cnt']); //배열에 데이터를 넣겠다.
       
-      let xhtp = new XMLHttpRequest(); // 비동기처리방식: Ajax.
+
+      // Ajax. 비동기처리방식
+      let xhtp = new XMLHttpRequest(); 
       xhtp.open('get', 'chartData.do');
       xhtp.send();
       xhtp.onload = function (){
