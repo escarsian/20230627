@@ -2,14 +2,13 @@ package com.yedam.board.service;
 
 import java.util.List;
 
-import com.yedam.board.vo.BoardVO;
+import com.yedam.board.vo.Board;
 
 public interface BoardService {
-	List<BoardVO> boards();
-	
-	public boolean addBoard(BoardVO vo);
-	
-	public boolean removeBoard(BoardVO vo);
-	
-	public BoardVO selectBoard(String title);
+
+	public List<Board> boardList(int page);
+	public int totalCount();
+	public Board getBoard(long brdNo);
+	public boolean clickCnt(long brdNo);
+
 }

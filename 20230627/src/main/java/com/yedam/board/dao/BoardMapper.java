@@ -2,11 +2,13 @@ package com.yedam.board.dao;
 
 import java.util.List;
 
-import com.yedam.board.vo.BoardVO;
+import com.yedam.board.vo.Board;
 
 public interface BoardMapper {
-	public List<BoardVO> boards();
-	public int insert(BoardVO vo);
-	public int remove(BoardVO vo);
-	public BoardVO select(String title);
+
+	public List<Board> selectList(int page);
+	public int selectCount();
+	public Board selectOne(long brdNo);
+	public int clickCount(long brdNo);
+
 }

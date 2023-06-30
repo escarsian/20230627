@@ -39,7 +39,7 @@
   }
   .outer span{
 	display: inline-block;
-	width:80px;
+	width:110px;
 	height: 30px;
 	margin: 2px;
 	padding: 2px;
@@ -47,13 +47,12 @@
 	text-align: center;
   }
 </style>
+
 <input type = "text" id="userInput"><br>
 <br>
+<p id="time"></p>
 <div class="outer">
-  <span>Hello</span>
 </div>
 
 
-
-
-<script src="resources/js/main5.js"></script>
+<script src="resources/js/main6.js"></script>

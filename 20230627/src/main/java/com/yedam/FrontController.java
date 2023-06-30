@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.board.control.AddBoardControl;
-import com.yedam.board.control.BoardListControl;
-import com.yedam.board.control.RemoveBoardControl;
-import com.yedam.board.control.SelectBoardControl;
+import com.yedam.board.control.AddReplyControl;
+import com.yedam.board.control.BoardControl;
+import com.yedam.board.control.BoardList;
+import com.yedam.board.control.DelReplyControl;
+import com.yedam.board.control.EditReplyControl;
+import com.yedam.board.control.ReplyControl;
+import com.yedam.board.control.ReplyListControl;
 import com.yedam.calendar.control.AddEventControl;
 import com.yedam.calendar.control.EventForm;
 import com.yedam.calendar.control.EventListControl;
@@ -56,11 +59,15 @@ public class FrontController extends HttpServlet{
 		menu.put("/addEvent.do", new AddEventControl());
 		menu.put("/removeEvent.do", new RemoveEventControl());
 		//
-//		menu.put("/boardForm.do", new BoardForm());
-		menu.put("/boardList.do", new BoardListControl());
-		menu.put("/selectBoard.do", new SelectBoardControl());
-		menu.put("/removeBoard.do", new RemoveBoardControl());
-		menu.put("/addBoard.do", new AddBoardControl());
+		menu.put("/boardList.do", new BoardList());
+		menu.put("/board.do", new BoardControl());
+		
+		//
+		menu.put("/replyList.do", new ReplyListControl());
+		menu.put("/getReply.do", new ReplyControl());
+		menu.put("/addReply.do", new AddReplyControl());
+		menu.put("/editReply.do", new EditReplyControl());
+		menu.put("/delReply.do", new DelReplyControl());
 	}
 	
 	@Override
@@ -83,7 +90,7 @@ public class FrontController extends HttpServlet{
 			return;
 			
 		}else if(viewPage.endsWith(".json")) {
-			resp.setContentType("text/json;charset=utf-8");
+			resp.setContentType("text/json;charset=UTF-8");
 			resp.getWriter().print(viewPage.substring(0, viewPage.length() - 5)); //.json 빼주는것.
 			return;
 		}

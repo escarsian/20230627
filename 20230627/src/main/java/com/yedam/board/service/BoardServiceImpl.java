@@ -2,35 +2,36 @@ package com.yedam.board.service;
 
 import java.util.List;
 
-import com.yedam.board.vo.BoardVO;
+import org.apache.ibatis.session.SqlSession;
+
+import com.yedam.board.dao.BoardMapper;
+import com.yedam.board.vo.Board;
+import com.yedam.common.DataSource;
 
 public class BoardServiceImpl implements BoardService {
+	SqlSession session = DataSource.getInstance().openSession(true);
+	BoardMapper mapper = session.getMapper(BoardMapper.class);
 
 	@Override
-	public List<BoardVO> boards() {
-		// TODO Auto-generated method stub
-		
-		return null;
+	public List<Board> boardList(int page) {
+		return mapper.selectList(page);
 	}
 
 	@Override
-	public boolean addBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
-		return false;
+	public Board getBoard(long brdNo) {
+		Board brd = mapper.selectOne(brdNo);
+		mapper.clickCount(brdNo);
+		return brd;
 	}
 
 	@Override
-	public boolean removeBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
-		
-		return false;
+	public int totalCount() {
+		return mapper.selectCount();
 	}
 
 	@Override
-	public BoardVO selectBoard(String title) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean clickCnt(long brdNo) {
+		return mapper.clickCount(brdNo) == 1;
 	}
 
 }
