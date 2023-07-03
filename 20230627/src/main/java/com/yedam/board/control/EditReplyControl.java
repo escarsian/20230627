@@ -19,7 +19,7 @@ public class EditReplyControl implements Control {
 		String rno = req.getParameter("rno");
 		
 		ReplyVO vo = new ReplyVO();
-		vo.setBrdNo(Long.parseLong(rno));
+		vo.setReplyNo(Long.parseLong(rno));
 		vo.setReply(reply);
 		
 		ReplyService svc = new ReplyServiceImpl();

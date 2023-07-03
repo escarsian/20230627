@@ -8,6 +8,7 @@ import com.yedam.board.vo.ReplyVO;
 
 public interface ReplyMapper {
 	public List<ReplyVO> selectList(@Param("brdNo") long brdNo, @Param("page") int page); //댓글 목록
+	
 	public int selectCount(long brdNo);
 	
 	public ReplyVO selectOne(long replyNo); //댓글 한 건 조회

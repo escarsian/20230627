@@ -241,7 +241,11 @@
     	.then(response => response.json())
     	.then(result => {
             let replyNo = result.replyNo;
-            let targetLI = document.querySelector('.chat li[data-rno="'+replyNo+'"]')
+            console.log(result);
+            console.log(replyNo);
+            let targetLI = document.querySelector('.chat li[data-rno="' + replyNo + '"]')
+            console.log(targetLI);
+            console.log(targetLI.querySelector('p'));
             targetLI.querySelector('p').innerText = result.reply;
             
             //modal 창 닫기.

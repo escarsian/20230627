@@ -21,6 +21,7 @@
 	  </td>
 	</tr>
 </table>
+
 <br>
 <h3>학생목록</h3>
 <table id="list" border="1" class="table">
