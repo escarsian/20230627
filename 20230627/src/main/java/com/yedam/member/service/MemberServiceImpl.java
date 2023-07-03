@@ -13,21 +13,19 @@ public class MemberServiceImpl implements MemberService {
 
 	SqlSession session = DataSource.getInstance().openSession(true);
 	MemberMapper mapper = session.getMapper(MemberMapper.class);
+	
 	@Override
 	public List<MemberVO> members() {
-		// TODO Auto-generated method stub
 		return mapper.memberList();
 	}
 	
 	@Override
 	public MemberVO login(String id, String pw) {
-		// TODO Auto-generated method stub
 		return mapper.login(id, pw);
 	}
 
 	@Override
 	public List<Map<String, Object>> getData() {
-		// TODO Auto-generated method stub
 		return mapper.chartData();
 	}
 	
@@ -43,6 +41,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean modifyImage(MemberVO vo) {
 		return mapper.updateImage(vo) == 1;
+	}
+
+	@Override
+	public boolean addMember(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return mapper.insert(vo) == 1;
 	}
 	
 	

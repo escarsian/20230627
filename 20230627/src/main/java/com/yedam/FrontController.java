@@ -28,8 +28,12 @@ import com.yedam.member.control.ChartFormControl;
 import com.yedam.member.control.ImageUploadControl;
 import com.yedam.member.control.LoginControl;
 import com.yedam.member.control.LoginFormControl;
+import com.yedam.member.control.MemberAddControl;
 import com.yedam.member.control.MemberInfoControl;
+import com.yedam.member.control.MemberInfoJson;
 import com.yedam.member.control.MemberListControl;
+import com.yedam.member.control.MemberListJquery;
+import com.yedam.member.control.MemberListJson;
 import com.yedam.member.control.MemberModifyControl;
 
 public class FrontController extends HttpServlet{
@@ -49,6 +53,13 @@ public class FrontController extends HttpServlet{
 		menu.put("/memberInfo.do", new MemberInfoControl());
 		menu.put("/memberModify.do", new MemberModifyControl());
 		menu.put("/imageUpload.do", new ImageUploadControl());
+		
+		menu.put("/memberListJquery.do", new MemberListJquery());
+		menu.put("/memberListJson.do", new MemberListJson());
+		
+		menu.put("/memberAdd.do", new MemberAddControl());
+		menu.put("/memberInfoJson.do", new MemberInfoJson());
+		
 		//
 		menu.put("/chartForm.do", new ChartFormControl());
 		menu.put("/chartData.do", new ChartDataControl());
@@ -72,7 +83,7 @@ public class FrontController extends HttpServlet{
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		req.setCharacterEncoding("UTF-8");
 		String uri = req.getRequestURI();
 		String contextPath = req.getContextPath();
 		String page = uri.substring(contextPath.length());

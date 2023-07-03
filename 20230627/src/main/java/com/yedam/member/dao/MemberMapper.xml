@@ -15,8 +15,8 @@
   </select>
 
   <insert id="insert" parameterType="member">
-	insert into tbl_users(user_id, user_pw, user_name, user_birth, user_img)
-	values (#{userId}, #{userPw}, #{userName}, #{userBirth}, #{userImg})
+	insert into tbl_users(user_id, user_pw, user_name, user_birth, user_phone, user_addr)
+	values (#{userId}, #{userPw}, #{userName}, #{userBirth}, #{userPhone}, #{userAddr})
   </insert>
 
   <select id="chartData" resultType="map"> <!-- map을 쓰는 이유는 value, key 로 데이터를 2개 가져오기 위해서. -->

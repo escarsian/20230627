@@ -23,6 +23,7 @@ public class EditReplyControl implements Control {
 		vo.setReply(reply);
 		
 		ReplyService svc = new ReplyServiceImpl();
+		
 		if(svc.modifyReply(vo)) {
 			vo = svc.getReply(Long.parseLong(rno));
 		}

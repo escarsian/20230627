@@ -3,25 +3,28 @@ package com.yedam.member.control;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 import com.yedam.member.service.MemberService;
 import com.yedam.member.service.MemberServiceImpl;
 import com.yedam.member.vo.MemberVO;
 
-public class MemberInfoControl implements Control {
+public class MemberInfoJson implements Control {
 
 	@Override
 	public String exec(HttpServletRequest req, HttpServletResponse resp) {
-		
-		// service -> getMember(id), mapper->select(id) => MemberVO
-		// admin/memberInfo.jsp
+		// TODO Auto-generated method stub
+		MemberService svc = new MemberServiceImpl();
 		String id = req.getParameter("uid");
-		MemberService service = new MemberServiceImpl();
-		MemberVO result = service.getMember(id);
+		MemberVO vo = new MemberVO();
 		
-		req.setAttribute("member", result);
+		vo.setUserId(id);
+		MemberVO result = svc.getMember(id);
 		
-		return "admin/memberInfo.tiles";
+		Gson gson = new GsonBuilder().create();
+		
+		return gson.toJson(result) + ".json";
 	}
 
 }

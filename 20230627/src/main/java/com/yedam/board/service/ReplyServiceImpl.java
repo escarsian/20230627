@@ -13,8 +13,13 @@ public class ReplyServiceImpl implements ReplyService {
 	ReplyMapper mapper = session.getMapper(ReplyMapper.class);
 	
 	@Override
-	public List<ReplyVO> replyList(long brdNo) {
-		return mapper.selectList(brdNo);
+	public List<ReplyVO> replyList(long brdNo, int page) {
+		return mapper.selectList(brdNo, page);
+	}
+	
+	@Override
+	public int replyCount(long brdNo) {
+		return mapper.selectCount(brdNo);
 	}
 
 	@Override
@@ -24,17 +29,17 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public boolean addReply(ReplyVO vo) {
-		return mapper.insertReply(vo)==1;
+		return mapper.insertReply(vo) == 1;
 	}
 
 	@Override
 	public boolean modifyReply(ReplyVO vo) {
-		return mapper.updateReply(vo)==1;
+		return mapper.updateReply(vo) == 1;
 	}
 
 	@Override
 	public boolean removeReply(long replyNo) {
-		return mapper.deleteReply(replyNo)==1;
+		return mapper.deleteReply(replyNo) == 1;
 	}
 	
 
